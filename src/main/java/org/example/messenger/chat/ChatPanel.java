@@ -2,6 +2,7 @@ package org.example.messenger.chat;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.example.messenger.UserSelector;
 
 import javax.swing.*;
 import java.awt.*;
