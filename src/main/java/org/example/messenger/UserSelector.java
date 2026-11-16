@@ -17,6 +17,14 @@ public class UserSelector extends JPanel {
 
         add(new JLabel("Current user:"));
         add(users);
+
+        users.addActionListener(e -> {
+            firePropertyChange(
+                    "currentUser",
+                    null,
+                    getCurrentUser()
+            );
+        });
     }
 
     public String getCurrentUser() {

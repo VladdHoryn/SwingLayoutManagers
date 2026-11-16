@@ -22,6 +22,8 @@ public class ChatPanel extends JPanel {
     }
 
     public void updateCurrentUser(String currentUser) {
+        this.currentUser = currentUser;
+
         for (Component component : getComponents()) {
             if (component instanceof MessageRow row) {
                 row.updateMessage(

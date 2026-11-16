@@ -31,7 +31,7 @@ public class MessengerPanel extends JPanel {
         add(send, BorderLayout.SOUTH);
 
         userSelector.addPropertyChangeListener("currentUser",
-                e -> setCurrentUser((String) e.getNewValue()));
+                e -> setCurrentUser());
 
 
         chat.addMessage(new Message("Hi, How is t going?", "Vlad"));
@@ -39,8 +39,8 @@ public class MessengerPanel extends JPanel {
         chat.addMessage(new Message("How about you?", "Ann"));
     }
 
-    public void setCurrentUser(String user) {
-        currentUser = user;
-        chat.updateCurrentUser(user);
+    public void setCurrentUser() {
+        currentUser = userSelector.getCurrentUser();
+        chat.updateCurrentUser(currentUser);
     }
 }

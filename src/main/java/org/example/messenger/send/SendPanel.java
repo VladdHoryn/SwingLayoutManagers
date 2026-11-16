@@ -26,5 +26,7 @@ public class SendPanel extends JPanel {
 
     private void sendMessage(){
         chat.addMessage(new Message(input.getText(), chat.getCurrentUser()));
+
+        this.input.setText("");
     }
 }
