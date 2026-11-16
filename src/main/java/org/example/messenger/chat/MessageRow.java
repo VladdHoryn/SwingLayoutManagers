@@ -14,7 +14,9 @@ public class MessageRow extends JPanel {
         this.bubble = new MessageBubble(message, currentUser);
         this.message = message;
 
-        this.setLayout(new FlowLayout());
+        setOpaque(false);
+
+        this.setLayout(new BorderLayout());
 
         updateMessage(message, currentUser);
     }
@@ -23,16 +25,25 @@ public class MessageRow extends JPanel {
         removeAll();
 
         boolean isOwner = message.isOwner(currentUser);
+        this.message = message;
 
         bubble.updateMessage(message, currentUser);
 
         if (isOwner) {
             add(bubble, BorderLayout.EAST);
         } else {
-            add(bubble, BorderLayout.WEST);
+            add(bubble,BorderLayout.WEST);
         }
 
         revalidate();
         repaint();
+    }
+
+    @Override
+    public Dimension getMaximumSize() {
+        return new Dimension(
+                Integer.MAX_VALUE,
+                getPreferredSize().height
+        );
     }
 }

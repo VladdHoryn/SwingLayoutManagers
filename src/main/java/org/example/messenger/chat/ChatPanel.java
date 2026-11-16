@@ -17,6 +17,8 @@ public class ChatPanel extends JPanel {
 
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         setBackground(Color.GRAY);
+
+        setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
     }
 
     public void updateCurrentUser(String currentUser) {
