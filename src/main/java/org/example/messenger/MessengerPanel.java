@@ -8,6 +8,7 @@ import org.example.messenger.selector.UserSelector;
 import org.example.messenger.send.SendPanel;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
 public class MessengerPanel extends JPanel {
@@ -39,6 +40,9 @@ public class MessengerPanel extends JPanel {
         chat.addMessage(new Message("Hi, How is t going?", "Vlad"));
         chat.addMessage(new Message("Hi, not too bad", "Ann"));
         chat.addMessage(new Message("How about you?", "Ann"));
+
+        this.setBackground(Color.GRAY);
+        this.setBorder(new EmptyBorder(20, 10, 20, 10));
     }
 
     public void setCurrentUser() {

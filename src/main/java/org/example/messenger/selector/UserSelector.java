@@ -25,6 +25,8 @@ public class UserSelector extends JPanel {
                     getCurrentUser()
             );
         });
+
+        setBackground(new Color(220, 220, 220));
     }
 
     public String getCurrentUser() {
