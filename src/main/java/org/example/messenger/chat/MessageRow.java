@@ -16,8 +16,6 @@ public class MessageRow extends JPanel {
 
         setOpaque(false);
 
-        this.setLayout(new BorderLayout());
-
         updateMessage(message, currentUser);
     }
 
@@ -30,9 +28,11 @@ public class MessageRow extends JPanel {
         bubble.updateMessage(message, currentUser);
 
         if (isOwner) {
-            add(bubble, BorderLayout.EAST);
+            this.setLayout(new FlowLayout(FlowLayout.RIGHT));
+            add(bubble);
         } else {
-            add(bubble,BorderLayout.WEST);
+            this.setLayout(new FlowLayout(FlowLayout.LEFT));
+            add(bubble);
         }
 
         revalidate();
