@@ -17,6 +17,7 @@ public class ChatPanel extends JPanel {
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         setBackground(Color.GRAY);
 
+        setAlignmentX(Component.LEFT_ALIGNMENT);
         setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
     }
 
@@ -42,5 +43,18 @@ public class ChatPanel extends JPanel {
 
         revalidate();
         repaint();
+    }
+
+    @Override
+    public Dimension getPreferredSize() {
+        Dimension size = super.getPreferredSize();
+
+        Container parent = getParent();
+
+        if (parent != null) {
+            size.width = parent.getWidth();
+        }
+
+        return size;
     }
 }

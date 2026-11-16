@@ -19,6 +19,7 @@ public class MessengerPanel extends JPanel {
     private final ChatPanel chat;
     private final SendPanel send;
     private final UserSelector userSelector;
+    private final JScrollPane scrollPane;
 
     public MessengerPanel(){
         this.setLayout(new BorderLayout());
@@ -30,8 +31,35 @@ public class MessengerPanel extends JPanel {
 
         add(header, BorderLayout.NORTH);
         add(userSelector, BorderLayout.EAST);
-        add(chat, BorderLayout.CENTER);
         add(send, BorderLayout.SOUTH);
+
+        scrollPane = new JScrollPane(chat);
+
+        scrollPane.setVerticalScrollBarPolicy(
+                JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED
+        );
+
+        scrollPane.setHorizontalScrollBarPolicy(
+                JScrollPane.HORIZONTAL_SCROLLBAR_NEVER
+        );
+
+        scrollPane.setComponentOrientation(
+                ComponentOrientation.RIGHT_TO_LEFT
+        );
+
+        scrollPane.getViewport().setComponentOrientation(
+                ComponentOrientation.LEFT_TO_RIGHT
+        );
+
+        chat.setComponentOrientation(
+                ComponentOrientation.LEFT_TO_RIGHT
+        );
+
+        scrollPane.setBorder(null);
+
+        add(scrollPane, BorderLayout.CENTER);
+
+
 
         userSelector.addPropertyChangeListener("currentUser",
                 e -> setCurrentUser());
@@ -49,4 +77,12 @@ public class MessengerPanel extends JPanel {
         currentUser = userSelector.getCurrentUser();
         chat.updateCurrentUser(currentUser);
     }
+
+//    public void scrollToBottom() {
+//        SwingUtilities.invokeLater(() -> {
+//            JScrollBar vertical = scrollPane.getVerticalScrollBar();
+//
+//            vertical.setValue(vertical.getMaximum());
+//        });
+//    }
 }
