@@ -10,7 +10,10 @@ public class MessageBubble extends JPanel{
         this.text = new JLabel();
 
         text.setFont(new Font("Arial", Font.PLAIN, 14));
-
+        setOpaque(false);
+        text.setBorder(
+                BorderFactory.createEmptyBorder(10, 15, 10, 15)
+        );
 
         add(text);
 
@@ -52,6 +55,5 @@ public class MessageBubble extends JPanel{
         );
 
         g2.dispose();
-        super.paintComponent(g);
     }
 }
