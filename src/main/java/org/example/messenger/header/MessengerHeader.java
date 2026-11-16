@@ -1,4 +1,4 @@
-package org.example.messenger;
+package org.example.messenger.header;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;

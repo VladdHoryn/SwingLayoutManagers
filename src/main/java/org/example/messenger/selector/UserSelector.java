@@ -1,4 +1,4 @@
-package org.example.messenger;
+package org.example.messenger.selector;
 
 import javax.swing.*;
 import java.awt.*;

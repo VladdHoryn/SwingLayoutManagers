@@ -3,6 +3,8 @@ package org.example.messenger;
 import lombok.Getter;
 import org.example.messenger.chat.ChatPanel;
 import org.example.messenger.chat.Message;
+import org.example.messenger.header.MessengerHeader;
+import org.example.messenger.selector.UserSelector;
 import org.example.messenger.send.SendPanel;
 
 import javax.swing.*;
