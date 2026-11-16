@@ -4,7 +4,10 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Keys extends JPanel {
-    public Keys(){
+    private final Logics logics;
+
+    public Keys(Logics logics){
+        this.logics = logics;
 
         this.setLayout(new GridLayout(5,4 ));
 
@@ -16,11 +19,10 @@ public class Keys extends JPanel {
                 "⌫", "0", ".", "="
         };
 
-//        Logics logics = new Logics();
-
         for (String label : labels) {
             JButton b = new JButton(label);
             b.setFont(b.getFont().deriveFont(16f));
+            b.addActionListener(e -> logics.press(label));
 
             this.add(b);
         }
