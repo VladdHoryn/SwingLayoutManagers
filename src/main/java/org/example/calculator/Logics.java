@@ -21,6 +21,7 @@ public class Logics {
 
             case "C": {
                 display.getValue().setText("0");
+                display.getHistory().setText("");
                 firstNumber = 0;
                 operator = "";
                 newNumber = true;
@@ -60,6 +61,8 @@ public class Logics {
                 double number = Double.parseDouble(value);
                 number /= 100;
                 display.getValue().setText(format(number));
+
+                display.getHistory().setText(value + "%");
                 newNumber = true;
                 break;
             }
@@ -79,6 +82,9 @@ public class Logics {
             case "×":
             case "÷": {
                 firstNumber = Double.parseDouble(value);
+                display.getHistory().setText(
+                        display.getHistory().getText() + value + " " + k + " "
+                );
                 operator = k;
                 newNumber = true;
                 break;
@@ -108,6 +114,7 @@ public class Logics {
                     case "÷":
                         if (secondNumber == 0) {
                             display.getValue().setText("Error");
+                            display.getHistory().setText("Division by zero");
                             operator = "";
                             newNumber = true;
                             return;
@@ -116,7 +123,13 @@ public class Logics {
                         break;
                 }
 
-                display.getValue().setText(format(result));
+                String resultText = format(result);
+
+                display.getHistory().setText(
+                        display.getHistory().getText() + value + " = " + resultText
+                );
+
+                display.getValue().setText(resultText);
 
                 operator = "";
                 newNumber = true;
