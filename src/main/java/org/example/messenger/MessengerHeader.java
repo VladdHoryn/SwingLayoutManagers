@@ -15,8 +15,11 @@ public class MessengerHeader extends JPanel {
         this.chatStatus = new JLabel();
 
         this.chatName.setText(chatName);
+        this.chatName.setFont(new Font("Arial", Font.PLAIN, 18));
+
         this.chatStatus.setText("online");
         this.chatStatus.setForeground(new Color(34, 177, 76));
+        this.chatStatus.setFont(new Font("Arial", Font.PLAIN, 11));
 
         this.add(this.chatName, BorderLayout.WEST);
         this.add(this.chatStatus, BorderLayout.EAST);
